@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from "react";
+import {
+  View,
+  Panel,
+  PanelHeader,
+  Gallery,
+  Group,
+} from "@vkontakte/vkui";
+import "@vkontakte/vkui/dist/vkui.css";
+import { Filter } from './components/Filter';
+import { NewTodo } from './components/NewTodo';
+import { TodoList } from './components/TodoList';
+import { TotalTodos } from './components/TotalTodos';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <View activePanel="mainPanel">
+      <Panel id="mainPanel">
+        <PanelHeader>New year's wish list</PanelHeader>
+        <Gallery slideWidth='100%' isDraggable={true} showArrows={true} align='center' bullets='light'>
+          <Group style={{maxWidth: '50%', margin: 'auto' }}>
+            <Filter />
+            <TodoList />
+          </Group>
+          <Group style={{maxWidth: '50%', margin: 'auto' }}>
+            <TotalTodos />
+            <NewTodo />
+          </Group>
+        </Gallery>
+      </Panel>
+    </View>
+  );
+};
 
-export default App
+export default App;
+    //  {/* <AppRoot>
+    //   <SplitLayout header={<PanelHeader separator={false} />}>
+    //     <SplitCol autoSpaced>
+    //       <View activePanel="main">
+    //         <Panel id="main">
+    //          <Group header={<Header mode="secondary">Items</Header>}>
+    //             <SimpleCell>Hello</SimpleCell>
+    //             <SimpleCell>World</SimpleCell>
+    //           </Group>
+    //         </Panel>
+    //       </View>
+    //     </SplitCol>
+    //   </SplitLayout>
+    // </AppRoot> */}
