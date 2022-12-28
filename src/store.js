@@ -13,13 +13,13 @@ export const useTodos = create(devtools(persist((set, get) => ({
   //   const newTodo = { id: nanoid(), title, completed: false }
 
   //   return { todos: [...state.todos, newTodo] }
-  // })
-  // addTodo: (title) => set(state => ({ todos: [...state.todos, { id: nanoid(), title, completed: false }] }))
-  addTodo: (title) => {
-    const newTodo = { id: nanoid(), title, completed: false }
+  // }),
+  addTodo: (title) => set(state => ({ todos: [...state.todos, { id: nanoid(), title, completed: false }] })),
+  // addTodo: (title) => {
+  //   const newTodo = { id: nanoid(), title, completed: false }
 
-    set({ todos: [...get().todos, newTodo] })
-  },
+  //   set({ todos: [...get().todos, newTodo] })
+  // },
   toggleTodo: (todoId) => set({
     todos: get().todos.map(
       todo => todoId === todo.id
@@ -48,9 +48,9 @@ export const useTodos = create(devtools(persist((set, get) => ({
     });
 
     try {
-      const res = await fetch(myRequest)
+      const res = myRes // await fetch(myRequest)
 
-      if (!res.ok) throw new Error('Failed to fetch! Try again.')
+      // if (!res.ok) throw new Error('Failed to fetch! Try again.')
 
       set({ todos: await res.json(), error: null })
     } catch (error) {

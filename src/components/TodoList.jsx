@@ -2,7 +2,7 @@ import { Checkbox, Text, } from '@vkontakte/vkui';
 import { useFilter, useTodos } from '../store';
 
 const Todo = ({ id, title, completed }) => {
-  const toggleTodo = useTodos((state) => state.toggleTodo);
+  const toggleTodo = useTodos((state) => state.toggleTodo); // это типа юзСелект
 
   return (
     <Checkbox defaultChecked={completed} onChange={() => toggleTodo(id)}>

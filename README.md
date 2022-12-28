@@ -5,3 +5,4 @@ npm create vite@latest
 npm run dev 
 
 The future can be even brighter but a goal without a plan is just a wish
+

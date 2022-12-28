@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   Panel,
@@ -7,6 +6,7 @@ import {
   Group,
 } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
+import { FetchTodos } from './components/FetchTodos';
 import { Filter } from './components/Filter';
 import { NewTodo } from './components/NewTodo';
 import { TodoList } from './components/TodoList';
@@ -17,7 +17,7 @@ const App = () => {
     <View activePanel="mainPanel">
       <Panel id="mainPanel">
         <PanelHeader>New year's wish list</PanelHeader>
-        <Gallery slideWidth='100%' isDraggable={true} showArrows={true} align='center' bullets='light'>
+        <Gallery slideWidth='70%' isDraggable={true} showArrows={true} align='center' bullets='light'>
           <Group style={{maxWidth: '50%', margin: 'auto' }}>
             <Filter />
             <TodoList />
@@ -25,6 +25,7 @@ const App = () => {
           <Group style={{maxWidth: '50%', margin: 'auto' }}>
             <TotalTodos />
             <NewTodo />
+            <FetchTodos />
           </Group>
         </Gallery>
       </Panel>
