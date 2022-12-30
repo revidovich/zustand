@@ -1,0 +1,6 @@
+.gallery {
+  height: 40vh;
+}
+.vkuiBaseGallery__bullets--dark .vkuiBaseGallery__bullet {
+  background-color: rgb(0, 111, 202);
+}
